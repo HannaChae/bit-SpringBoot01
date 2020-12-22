@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8" session="false"%>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -189,39 +189,14 @@
     </section>
     
 
-    <script type="text/javascript" src="/resources/js/jquery.js"></script>
-    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/resources/js/wow.min.js"></script>
-    <script type="text/javascript" src="/resources/js/coundown-timer.js"></script>
-    <script type="text/javascript" src="/resources/js/main.js"></script>
-    <script>
-        $('#home').click(e => { location.href = '/'})
-        $('#facebook').click(e => {location.href = '/transfer/sym/tea/index'})
-        $('#signupbtn').click(e => {
-            e.preventDefault()
-            $.ajax({
-                url: `/students`,
-                type: 'POST',
-                data: JSON.stringify({
-                    userid: $('#userid').val(), 
-                    ssn: $('#ssn').val(), 
-                    regDate: $('#regDate').val(), 
-                    subject: $('#subject').val(), 
-                    name: $('#name').val(),
-                    password: $('#password').val()
-                }),
-                dataType: 'json',
-                contentType: 'application/json',
-                success: d => {
-                   location.href='/move/uss/login'
-                },
-                error: e => {
-                    console.log(`학습자등록 실패: ${e.responseText}`)
-                    location.href = '/move/cmm/404'
-                }
-            })
-        })
-    </script>
+    <script type="text/javascript" src="${mgr}/js/jquery.js"></script>
+    <script type="text/javascript" src="${mgr}/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${mgr}/js/wow.min.js"></script>
+    <script type="text/javascript" src="${mgr}/js/coundown-timer.js"></script>
+    <script type="text/javascript" src="${mgr}/js/main.js"></script>
+    <script type="text/javascript" src="${uss}/js/main.js"></script>
+    
+
     
 </body>
 </html>
