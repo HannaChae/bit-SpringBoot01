@@ -16,11 +16,11 @@
     <link href="${cmm}/css/responsive.css" rel="stylesheet">
 
          
-    <link rel="shortcut icon" href="${mgr}/images/ ico/favicon.ico">
+    <link rel="shortcut icon" href="${mgr}/images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${mgr}/images/ ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${mgr}/images/ ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${mgr}/images/ ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="${mgr}/images/ ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="${mgr}/images/ico/apple-touch-icon-57-precomposed.png">
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         * {box-sizing: border-box}
@@ -96,7 +96,7 @@
 
 <body>
     <div class="logo-image">                                
-       <a id="home" href="#"><img class="img-responsive" src="${mgr}/images/ logo.png" alt=""> </a> 
+       <a id="home" href="#"><img class="img-responsive" src="${cmm}/images/logo.png" alt=""> </a> 
     </div>
      <section id="coming-soon">        
          <div class="container">
@@ -187,10 +187,7 @@
     <script type="text/javascript" src="${cmm}/js/wow.min.js"></script>
     <script type="text/javascript" src="${cmm}/js/coundown-timer.js"></script>
     <script type="text/javascript" src="${cmm}/js/main.js"></script>
-        <script type="text/javascript" src="${mgr}/js/register.js"></script>
-    <script>
+    <script type="text/javascript" src="${mgr}/js/register.js"></script>
 
-    </script>
-    
 </body>
 </html>
