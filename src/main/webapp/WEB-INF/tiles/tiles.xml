@@ -1,16 +1,18 @@
-
 <!DOCTYPE tiles-definitions PUBLIC
-  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
-  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
  
 <tiles-definitions>
  
-    <!-- 화면의 기초가 되는 base -->
     <definition name="public" template="/WEB-INF/views/cmm/layout.jsp">
-	    <put-attribute name="header" value="/WEB-INF/views/cmm/logo.jsp"/>
+    	<put-attribute name="header" value="/WEB-INF/views/cmm/logo.jsp"/>
 	    <put-attribute name="gnb" value="/WEB-INF/views/cmm/navbar.jsp"/>
-	    <put-attribute name="container" value="/WEB-INF/views/cmm/wow.jsp"/>
+	    <put-attribute name="container" value=""/>
 	    <put-attribute name="footer" value="/WEB-INF/views/cmm/footer.jsp"/>
-    </definition>
+	</definition>
 
+	<definition name="admin:*/*" extends="public">
+	    <put-attribute name="container" value="/WEB-INF/views/sym/{1}/{2}.jsp"/>
+	</definition>
+ 
 </tiles-definitions>
