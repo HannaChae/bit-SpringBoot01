@@ -1,6 +1,4 @@
-/**
- * 
- */
+'use strict'
 $(function() {
 			var ctx = document.getElementById('chartjs-dashboard-line').getContext("2d");
 			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
@@ -69,7 +67,8 @@ $(function() {
 				}
 			});
 		});
-				$(function() {
+		
+		$(function() {
 			// Pie chart
 			new Chart(document.getElementById("chartjs-dashboard-pie"), {
 				type: 'pie',
@@ -95,7 +94,7 @@ $(function() {
 				}
 			});
 		});
-				$(function() {
+		$(function() {
 			// Bar chart
 			new Chart(document.getElementById("chartjs-dashboard-bar"), {
 				type: 'bar',
@@ -137,7 +136,7 @@ $(function() {
 				}
 			});
 		});
-				$(function() {
+		$(function() {
 			$("#world_map").vectorMap({
 				map: "world_mill",
 				normalizeFunction: "polynomial",
@@ -211,7 +210,7 @@ $(function() {
 				$(window).trigger('resize');
 			}, 250)
 		});
-				$(function() {
+		$(function() {
 			$('#datetimepicker-dashboard').datetimepicker({
 				inline: true,
 				sideBySide: false,

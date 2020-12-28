@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ManagerServiceImpl implements ManagerService {
-    @Autowired ManagerMapper managerMapper;
+    @Autowired
+    ManagerMapper managerMapper;
+
     @Override
     public int register(Manager manager) {
         return managerMapper.insert(manager);
     }
-    
-}
 
+}

@@ -5,11 +5,13 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html>
-<jsp:include page="head.jsp"/>
+<tiles:insertAttribute name="head"/>
+<tiles:insertAttribute name="script"/>
 <style>
-table{1px solid black; width: 80%; margin : 0 auto}
+table{1px solid black; width: 80%; margin: 0 auto}
 table tr {1px solid black}
 table tr td{1px solid black}
+
 </style>
 <body>
 <table>
@@ -38,10 +40,11 @@ table tr td{1px solid black}
 		<td>
 			<footer id="layout-footer">
 				<tiles:insertAttribute name="footer"/>
+				
 			</footer>
 		</td>
 	</tr>
 </table>
-<script></script>    
+ 
 </body>
 </html>

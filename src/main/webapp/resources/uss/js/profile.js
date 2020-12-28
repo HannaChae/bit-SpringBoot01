@@ -1,8 +1,7 @@
 /**
  * 
  */
-
-		const userid = sessionStorage.getItem('userid')
+const userid = sessionStorage.getItem('userid')
 		$.getJSON(`/students/${userid}`, d => {
 			$('#profileImage').html(`<img src="${d.profileImage}" alt="${d.name}" class="img-fluid rounded-circle mb-2" width="128" height="128" />
 									<h5 class="card-title mb-0">${d.name}</h5>

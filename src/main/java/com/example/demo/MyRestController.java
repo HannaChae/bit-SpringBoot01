@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MyRestController {
-	@GetMapping("/hello")
-	public Map<?, ?> hello(){
-		var map = new HashMap<>(); 
-			System.out.println("----- REST TEST -----");
-			map.put("message", "SUCCESS");
-			return map;
+	@GetMapping("/hello") 
+	public Map<?,?> hello(){ 
+		var map = new HashMap<>();
+		System.out.println("------------- REST TEST -----------");
+		map.put("message", "SUCCESS");
+		return map; 
 	}
-
 }

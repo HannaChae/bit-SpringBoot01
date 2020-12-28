@@ -1,8 +1,7 @@
 /**
  * 
  */
-
-        $('#home').click(e => { location.href = '/'})
+$('#home').click(e => { location.href = '/'})
         $('#signin-btn').click(e => {
             e.preventDefault()
             $.ajax({

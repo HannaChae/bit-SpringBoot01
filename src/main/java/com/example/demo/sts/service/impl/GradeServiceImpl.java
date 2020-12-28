@@ -5,6 +5,6 @@ import com.example.demo.sts.service.GradeService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GradeServiceImpl implements GradeService{
-    
+public class GradeServiceImpl implements GradeService {
+
 }

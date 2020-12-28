@@ -22,7 +22,7 @@
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
-
+	
 	
 	<context:property-placeholder location="classpath:config/application.properties"/>
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

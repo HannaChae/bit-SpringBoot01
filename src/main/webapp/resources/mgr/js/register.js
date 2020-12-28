@@ -1,7 +1,5 @@
-/**
- * 
- */
-        $('#home').click(e => { location.href = '/'})
+'use strict'
+$('#home').click(e => { location.href = '/'})
         $('#facebook').click(e => {location.href = '/transfer/sym/mgr/index'})
         $('#signupbtn').click(e => {
             e.preventDefault()
