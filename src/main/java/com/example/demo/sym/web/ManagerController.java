@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.demo.sym.service.ManagerService;
-import com.example.demo.sym.service.model.Manager;
+import com.example.demo.sym.service.Manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +17,9 @@ import org.slf4j.LoggerFactory;
 @RestController
 public class ManagerController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired
-    ManagerService managerService;
+    
+    @Autowired ManagerService managerService;
+    
 
     @PostMapping("/managers")
     public Map<?, ?> register(@RequestBody Manager manager) {

@@ -8,10 +8,11 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<repositories>
-	  <repository>
-	   <id>oracle</id>
-	   <url>http://maven.jahia.org/maven2</url>
-	  </repository>
+		       <repository>
+<id>oracle</id>
+<name>ORACLE JDBC Repository</name>
+<url>https://maven.atlassian.com/3rdparty/</url>
+</repository>
 	</repositories>
 	<properties>
 		<java-version>11</java-version>
@@ -36,6 +37,9 @@
 		<commons-fileupload-version>1.4</commons-fileupload-version>
 		<jackson-version>2.11.2</jackson-version>
 		<tiles-version>3.0.8</tiles-version>
+		<mysql-version>5.1.6</mysql-version>
+		<mariadb-version>2.7.0</mariadb-version>
+		<commons-el-version>1.0</commons-el-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -61,14 +65,12 @@
 		    <artifactId>spring-context-support</artifactId>
 		    <version>${spring-version}</version>
 		</dependency>
-				
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${aspectj-version}</version>
 		</dependency>	
-		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -111,14 +113,12 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
-
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>${javax-version}</version>
 		</dependency>
-				
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -143,7 +143,6 @@
 		    <artifactId>jstl-api</artifactId>
 		    <version>${jstl-api-version}</version>
 		</dependency>
-		
 		<dependency>
 		    <groupId>org.apache.taglibs</groupId>
 		    <artifactId>taglibs-standard-impl</artifactId>
@@ -156,7 +155,6 @@
 		    <artifactId>javax.mail</artifactId>
 		    <version>${javax.mail-version}</version>
 		</dependency>
-		
 		<!-- Apache Commons IO (2019-11-20일 기준 최신버전) -->
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
@@ -164,7 +162,6 @@
 		    <artifactId>commons-io</artifactId>
 		    <version>${commons-io-version}</version>
 		</dependency>
-		
 		<!-- Apache Commons FileUpload (2019-11-20일 기준 최신버전) -->
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<dependency>
@@ -179,34 +176,46 @@
 			<version>${junit-version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- Oracle 11g -->
 		<dependency>
 		   <groupId>org.springframework</groupId>
 		   <artifactId>spring-jdbc</artifactId>
 		   <version>${spring-version}</version>
 		</dependency>
-				
-		<!-- 컨넥션 풀 라이브러리 -->
-		<dependency>
-		    <groupId>commons-dbcp</groupId>
-		    <artifactId>commons-dbcp</artifactId>
-		    <version>${commons-dbcp-version}</version>
-		</dependency>
-		
-		<!-- 오라클 JDBC 드라이버 -->
-		<dependency>
-		    <groupId>com.oracle</groupId>
-		    <artifactId>ojdbc7</artifactId>
-		    <version>${ojdbc7-version}</version>
-		</dependency>
-
+	 <!--  mysql/mysql-connector-java -->
+          <dependency>
+              <groupId>mysql</groupId>
+               <artifactId>mysql-connector-java</artifactId>
+              <version>${mysql-version}</version>
+          </dependency>
+          <dependency>
+               <groupId>org.mariadb.jdbc</groupId>
+               <artifactId>mariadb-java-client</artifactId>
+               <version>${mariadb-version}</version>
+          </dependency>
+		<!-- commons-el -->
+          <dependency>
+              <groupId>commons-el</groupId>
+              <artifactId>commons-el</artifactId>
+              <version>${commons-el-version}</version>
+          </dependency>
+          <!-- commons-fileupload -->
+          <dependency>
+              <groupId>commons-fileupload</groupId>
+              <artifactId>commons-fileupload</artifactId>
+               <version>${commons-fileupload-version}</version>
+          </dependency>
+          <!--  https://mvnrepository.com/artifact/commons-io/commons-io  -->
+          <dependency>
+              <groupId>commons-io</groupId>
+              <artifactId>commons-io</artifactId>
+              <version>${commons-io-version}</version>
+          </dependency>
 		<!-- MyBatis 라이브러리 -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
 		    <version>${mybatis-version}</version>
 		</dependency>
-		
 		<!-- mybatis spring 연동 -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
@@ -238,20 +247,19 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>${jackson-version}</version>
 		</dependency>
-				<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
+		<!-- Tiles -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
 			<version>${tiles-version}</version>
 		</dependency>
-		 
 		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-servlet -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-servlet</artifactId>
 			<version>${tiles-version}</version>
 		</dependency>
-		 
 		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
@@ -259,7 +267,6 @@
 			<version>${tiles-version}</version>
 		</dependency>
 	</dependencies>
-	
     <build>
         <plugins>
             <plugin>
