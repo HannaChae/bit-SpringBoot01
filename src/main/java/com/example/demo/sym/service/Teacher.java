@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Component
-@Data @AllArgsConstructor  @Lazy @NoArgsConstructor
+@Data @AllArgsConstructor @Lazy @NoArgsConstructor
 public class Teacher {
     private String teaNum, name, password, subject, profileImage;
 

@@ -19,11 +19,11 @@ public class Util {
 	public static Function<Object, String> string = String :: valueOf;
 	public static Function<String, Integer> integer = Integer :: valueOf;
 	public static BiPredicate<String, String> equals = String :: equals;
-	//  int r = (int)(Math.random() * 46) + 1; 1 ~ 45까지 랜덤수
-	public static BiFunction<Integer, Integer, Integer> rangeRandom = (t,u)->(int)(Math.random()*(u-t))+t;
-	public static Function<Integer, int[]> intarr = int[] :: new;
+	public static BiFunction<Integer, Integer, Integer> random =(t,u)->(int)(Math.random()*(u-t))+t;
+	public static Function<Integer, int[]> intArr = int[] :: new;
 	public static Supplier<LocalDate> today = () -> LocalDate.now();
 	public static Supplier<LocalTime> time = () -> LocalTime.now();
 	public static BiFunction<String,String, File> mkDir = File::new;
 	public static BiFunction<File,String, File> mkFile = File::new;
+	
 }

@@ -35,7 +35,7 @@ public class AppleController{
 		print.accept("3. 빨간사과 필터링 결과 ... 단, 색깔은 외부주입");
 		for(Apple a : as.filterApplesByColor(ls, Color.RED)) print.accept(a.toString());
 		print.accept("4. 120그램이상 사과 필터링 결과 ... 단, 무게는 외부주입");
-		for(Apple a : as.filterApplesByWeight(ls, 120)) print.accept(a.toString());
+		for(Apple a : as.filterApplesByWeight(ls, 120))print.accept(a.toString());
 		print.accept("5. 100그램 이상 빨간 사과 필터링 결과");
 		for(Apple a : as.filterApples(ls, (Apple a) -> a.getWeight() > 100  
 				&& a.getColor().equals(Color.RED)))
@@ -115,5 +115,6 @@ class AppleService {
 }
 
 	
+
 
 
