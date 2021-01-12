@@ -1,9 +1,127 @@
 'use strict'
+var stu = stu || {}
+stu.insertMany = x => {
+	$.getJSON(`${x}/students/insert-many/${$('#stu-data-count').val()}`, 
+			d => { location.reload();})}
+stu.truncate = x => {
+	$.getJSON(`${x}/students/truncate`,
+	 		d => { location.reload()})}
+stu.count = x => {
+	$.getJSON(`${x}/students/count`, 
+			d => { $(`#stu-count`).text(d)})}
+stu.list = x => {	
+	$.getJSON(`${x.ctx}/students/page/${x.pageSize}/${x.pageNum}`, d => { 
+		$(`<h3/>`)
+		.attr({id: `title`})
+		.text(`학생목록`)
+		.appendTo(`#mgr-data-mgt-stu`)
+		$(`<table/>`)
+		.attr({id: `tab`})
+		.css({width: `100%`})
+		.appendTo(`#title`) 
+		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`)
+		$.each(
+			[`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`전공과목`], 
+			(i,j) => {
+			$(`<th>${j}</th>`).css({backgroundColor: `gray`})
+			.appendTo(`#tr_1`)
+		})
+		$.each(d.list, 
+			(i, j) => {
+					$(`<tr><td>${j.stuNum}</td>
+		   	    		<td>${j.userid}</td>
+		   	    		<td>${j.name}</td>
+						<td>${j.birthday}</td>
+						<td>${j.gender}</td>
+						<td>${j.regDate}</td>
+						<td>${j.subject}</td></tr>`)
+						.css({padding: `15px`, textAlign: `left`, fontSize: `medium`})
+						.appendTo(`#tab`)
+		})
+		$(`<div/>`)
+		.attr({id: `stu_page`})
+		.addClass(`pagination`)
+		.appendTo(`#mgr-data-mgt-stu`)
+		const page = d.page
+		/*function* range(start, end) {
+			for (let i = start; i <= end; i++) {
+		        yield i;
+		    }
+		} 아래 형태는 for 가 배재된 재귀함수 */
+		function* range(start, end) {
+		    yield start;
+		    if (start === end) return;
+		    yield* range(start + 1, end);
+		}
+		
+		if(page.existPrev){
+			$(`<a/>`)
+			.attr({href: `#`})
+			.text(`<<`)
+			.css({backgroundColor: `gray`})
+			.appendTo(`#stu_page`)
+			.click(e=>{
+				e.preventDefault()
+				$(`#mgr-data-mgt-stu`).empty()
+				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.prevBlock})
+			})
+		}
+		$.each(
+			[...range(page.startPage, page.endPage)] ,
+			 (i, j) => {
+				$(`<a/>`)
+					.attr({href: `#`})
+					.css({backgroundColor: (j != page.pageNum) ? `gray` : `yellow`})
+					.text(`${j}`)
+					.appendTo(`#stu_page`)
+					.click(e=>{
+						e.preventDefault()
+						$(`#mgr-data-mgt-stu`).empty()
+						stu.list({ctx: x.ctx, pageSize: `10`, pageNum: j})
+					})
+		})
+		if(page.existNext){
+			$(`<a/>`)
+			.attr({href: `#`})
+			.css({backgroundColor: `gray`})
+			.text(`>>`)
+			.appendTo(`#stu_page`)
+			.click(e=>{
+				e.preventDefault()
+				$(`#mgr-data-mgt-stu`).empty()
+				stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.nextBlock})
+			})
+		}
+	})
+}
+/*
+<style>
+.sub-table {
+  width:100%;
+}
+.sub-table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.sub-table th, td {
+  padding: 15px;
+  text-align: left;
+}
+.sub-table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+.sub-table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+.sub-table#t01 th {
+  background-color: black;
+  color: white;
+}
+</style>*/
 
 
 
-
-
+/*
 const userid = localStorage.getItem('searchId')
 $.getJSON(`/students/${userid}`, d => {
 	$('#profileImage').html(`<img src="${d.profileImage}" alt="${d.name}" class="img-fluid rounded-circle mb-2" width="128" height="128" />
@@ -74,3 +192,4 @@ const userid = sessionStorage.getItem('userid')
 										<li class="mb-1"><span data-feather="map-pin" class="feather-sm mr-1"></span> 주소 : <a href="#">서울</a></li>
 									</ul>`)
 		})
+		*/

@@ -12,14 +12,16 @@
     		    <input type="text" id="stu-data-count"/><button id="mgr-insert-many-stu">건 데이터 생성</button><br/><br/>
 	    		<input type="radio" name="stu-data-gender" value="M" checked="checked"/>남성
 	    		<input type="radio" name="stu-data-gender" value="F"/>여성<button>성별조회</button><br/><br/>
-	    		<input type="text" id="stu-data-count"/><button>수정</button><br/><br/>
-	    		<input type="text" id="stu-data-count"/><button>삭제</button><br/><br/>
+	    		<input type="text" id="stu-data-update"/><button>수정</button><br/><br/>
+	    		<input type="text" id="stu-data-delete"/><button>삭제</button><br/><br/>
 	    		<button id="mgr-truncate-stu">전체삭제</button>
+	    		</td>
+	    		<td>
+	    		<div id="mgr-data-mgt-stu"></div>
 	    		</td>
     	</tr>
     	<tr>
-    		<td>교강사</td>
-    		<td>
+    		<td>교강사
     			<input type="text" id="tea-data-count" />
 	    		<button id="tea-insert-many-stu">건의 더미 데이터 생성</button>
 	    		<button>조회</button>
@@ -27,35 +29,30 @@
 	    		<button>삭제</button>
 	    		<button>전체삭제</button>
     		</td>
+    		<td>
+    		<div id="mgr-data-mgt-tea"></div>
+    		</td>
     	</tr>
     	<tr>
-    		<td>사 원 </td>
-    		<td>
+    		<td>사 원
 	    		<button>조회</button>
 	    		<button>수정</button>
 	    		<button>삭제</button>
 	    		<button>전체삭제</button>
     		</td>
+    		<td>
+    		<div id="mgr-data-mgt-emp"></div>
+    		</td>
     	</tr>
     </table>
 </section>
+<script src="${mgr}/js/mgr.js"></script>
+<script src="${stu}/js/stu.js"></script>
 <script>
-$.getJSON(`${ctx}/students/count`,function(d){
-	$(`#stu-count`).text(d)
-})
-$(`#mgr-truncate-stu`).click(function(e){
-	e.preventDefault()
-	$.getJSON(`${ctx}/students/truncate`, function(d){
-		location.reload();
-	})
-})
-$(`#mgr-insert-many-stu`).click(function(e){
-	e.preventDefault()
-	$.getJSON(`${ctx}/students/insert-many/`+$('#stu-data-count').val(), 
-			function(d){
-			location.reload();
-	})
-})
+stu.count(`${ctx}`)
+stu.list({ctx: `${ctx}`, pageSize: `10`, pageNum: `1`})
+$(`#mgr-truncate-stu`).click(function(){ stu.truncate(`${ctx}`) })
+$(`#mgr-insert-many-stu`).click(function(){ stu.insertMany(`${ctx}`) })
 </script>
 
 
