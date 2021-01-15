@@ -1,5 +1,6 @@
 package com.example.demo.cmm.utl;
-
+import static com.example.demo.cmm.utl.Util.*;
+import static java.util.stream.Collectors.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +17,6 @@ import com.example.demo.sym.service.Manager;
 import com.example.demo.sym.service.Teacher;
 import com.example.demo.uss.service.Student;
 
-import static com.example.demo.cmm.utl.Util.*;
 
 @Service("dummy")
 public class DummyGenerator {
@@ -131,6 +131,11 @@ public class DummyGenerator {
 		 Collections.shuffle(ls);
 		 return ls.get(0);
 	}
+	public int makeSubNum() {
+		List<Integer> ls = Arrays.asList(1,2,3,4,5);
+		 Collections.shuffle(ls);
+		 return ls.get(0);
+	}
 	
 	public String makeEmail() {
 		List<String> ls = Arrays.asList("@test.com","@gmail.com","@naver.com");
@@ -138,16 +143,16 @@ public class DummyGenerator {
 		return makeUserid()+ls.get(0);
 	}
 	
-	
+
 	public Student makeStudent() {
-		return new Student(0,makeUserid(), 
+		return new Student(makeUserid(), 
 				"1", 
 				makeUsername(), 
 				makeBirthday(), 
 				makeGender(),
 				makeRegdate(),
 				Path.DEFAULT_PROFILE.toString(),
-				makeSubject());
+				1);
 	}
 	/*********************************
 	 * Grade Dummy Data Generator 
@@ -159,21 +164,22 @@ public class DummyGenerator {
 				.map(i -> (int)(i * 100)).collect(Collectors.toList());
 	}
 	
-	public Grade makeGrade() {
-		return new Grade(makeSubject(), makeExamdate(), makeScore().get(0));
+	public Grade makeGrade(int stuNum, int subNum) {
+		return new Grade(stuNum, subNum, makeExamdate(), makeScore().get(0));
 	}
 	/*********************************
 	 * Teacher Dummy Data Generator 
 	 * *******************************
 	 */
-	public Teacher makeTeacher() {
-		return new Teacher("", 
+	
+	// String name, String password, String profileImage, int subNum)
+	public Teacher makeTeacher(int i) {
+		return new Teacher(
 				makeUsername(), 
-				"1", 
-				"", 
-				Path.DEFAULT_PROFILE.toString()
-				);
-	}
+				"1", // 비번
+				Path.DEFAULT_PROFILE.toString(),
+				i); // makeTeacher() 를 1 ~ 5 까지만 생성하기 위해
+	}// makeSubNum()
 	/*********************************
 	 * Manager Dummy Data Generator 
 	 * *******************************
@@ -183,6 +189,7 @@ public class DummyGenerator {
 	}
 	
 }
+
 
 
 

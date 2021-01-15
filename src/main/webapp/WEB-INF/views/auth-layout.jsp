@@ -60,7 +60,7 @@ li a:hover:not(.active) {
   text-align:center;
   border: 1px solid black
 }
-<
+
 .pagination {
   display: inline-block;
 }
@@ -81,12 +81,15 @@ li a:hover:not(.active) {
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
+
 </style>
 </head>
 <body>
 
+<div>
+	<tiles:insertAttribute name="sidebar"/>
+</div>
 
-<jsp:include page="./sym/mgr/sidebar.jsp"/>
 
 
 <div style="margin-left:10%;padding:1px 5px;height:1000px;">

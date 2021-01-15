@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @Component
 @Data @AllArgsConstructor @Lazy @NoArgsConstructor
 public class Reply extends Article {
-    private String repNum, content, artNum;
+    private String replyNum, content, artNum;
 }

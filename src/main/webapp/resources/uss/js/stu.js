@@ -3,9 +3,7 @@ var stu = stu || {}
 stu.insertMany = x => {
 	$.getJSON(`${x}/students/insert-many/${$('#stu-data-count').val()}`, 
 			d => { location.reload();})}
-stu.truncate = x => {
-	$.getJSON(`${x}/students/truncate`,
-	 		d => { location.reload()})}
+
 stu.count = x => {
 	$.getJSON(`${x}/students/count`, 
 			d => { $(`#stu-count`).text(d)})}
@@ -21,7 +19,7 @@ stu.list = x => {
 		.appendTo(`#title`) 
 		$(`<tr/>`).attr({id: `tr_1`}).appendTo(`#tab`)
 		$.each(
-			[`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`전공과목`], 
+			[`No`,`아이디`,`이름`,`생년월일`,`성별`,`등록일`,`담당매니저`], 
 			(i,j) => {
 			$(`<th>${j}</th>`).css({backgroundColor: `gray`})
 			.appendTo(`#tr_1`)
@@ -34,7 +32,7 @@ stu.list = x => {
 						<td>${j.birthday}</td>
 						<td>${j.gender}</td>
 						<td>${j.regDate}</td>
-						<td>${j.subject}</td></tr>`)
+						<td>${j.mgrNum}</td></tr>`)
 						.css({padding: `15px`, textAlign: `left`, fontSize: `medium`})
 						.appendTo(`#tab`)
 		})
@@ -94,6 +92,8 @@ stu.list = x => {
 		}
 	})
 }
+
+
 /*
 <style>
 .sub-table {
@@ -120,10 +120,9 @@ stu.list = x => {
 </style>*/
 
 
-
 /*
-const userid = localStorage.getItem('searchId')
-$.getJSON(`/students/${userid}`, d => {
+const userid2 = localStorage.getItem('searchId')
+$.getJSON(`/students/${userid2}`, d => {
 	$('#profileImage').html(`<img src="${d.profileImage}" alt="${d.name}" class="img-fluid rounded-circle mb-2" width="128" height="128" />
 							<h5 class="card-title mb-0">${d.name}</h5>
 							<div class="text-muted mb-2">Lead Developer</div>
@@ -191,5 +190,4 @@ const userid = sessionStorage.getItem('userid')
 										<li class="mb-1"><span data-feather="briefcase" class="feather-sm mr-1"></span> 생년월일 : <a href="#">${d.ssn}</a></li>
 										<li class="mb-1"><span data-feather="map-pin" class="feather-sm mr-1"></span> 주소 : <a href="#">서울</a></li>
 									</ul>`)
-		})
-		*/
+		}) */

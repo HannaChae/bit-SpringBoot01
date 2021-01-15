@@ -7,3 +7,4 @@ public class Subject {
 	private int subNum;
 	private String subject, description;
 }
+
